@@ -1,48 +1,50 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { userDetailsType } from '../type/userDetailsType';
+import { useAppContext } from './App';
 import './Drawer.css'
-import { initialState, reducer } from './Reducer';
 
 
 type RightPanelType = {
     close: (() => void)
     widthSideNav: "0px" | "33vw"
     isNew: boolean
-    id: number
 }
 
 
-const RightPanel = ({ close, widthSideNav, isNew, id }: RightPanelType) => {
+const RightPanel = ({ close, widthSideNav, isNew }: RightPanelType) => {
 
-    const [state, dispatch] = useReducer(reducer, initialState)
-    const [data, setData] = useState<userDetailsType>({ birthdDate: "", email: "", firstName: '', id: state.userDetails.length, lastName: '', moreInformation: "" })
+    const AppContextValue = useAppContext()
+
+    const [data, setData] = useState<userDetailsType>({ birthdDate: "", email: "", firstName: '', id: AppContextValue.state.userDetails.length, lastName: '', moreInformation: "" })
     const [updateData, setUpdateData] = useState<"can" | "delete" | "add">("can")
 
     useEffect(() => {
-        if (state.userDetails.length > 0 && id !== undefined) {
-            const nData = state.userDetails.filter(res => res.id === id)
+        console.log(AppContextValue.state.id)
+        if (AppContextValue.state.userDetails.length > 0 && AppContextValue.state.id !== undefined) {
+            const nData = AppContextValue.state.userDetails.filter(res => res.id === AppContextValue.state.id)
             setData({ ...nData[0] })
         } else {
-            setData({ birthdDate: "", email: "", firstName: '', id: state.userDetails.length, lastName: '', moreInformation: "" })
+            setData({ birthdDate: "", email: "", firstName: '', id: AppContextValue.state.userDetails.length + 1, lastName: '', moreInformation: "" })
         }
         // eslint-disable-next-line
-    }, [id])
-    
+    }, [AppContextValue.state.id])
+
     useEffect(() => {
         if (updateData === "add") {
             if (isNew) {
+                console.log(AppContextValue.state.userDetails.length)
                 // close()
-                setData({ birthdDate: "", email: "", firstName: '', id: state.userDetails.length, lastName: '', moreInformation: "" })
-                dispatch({ type: "new", payload: data })
+                setData({ birthdDate: "", email: "", firstName: '', id: AppContextValue.state.userDetails.length + 1, lastName: '', moreInformation: "" })
+                AppContextValue.dispatch({ type: "new", payload: data })
             } else {
-                dispatch({ type: "edit", payload: data })
+                AppContextValue.dispatch({ type: "edit", payload: data })
             }
         } else if (updateData === "delete") {
             if (isNew) {
                 close()
-                setData({ birthdDate: "", email: "", firstName: '', id: state.userDetails.length, lastName: '', moreInformation: "" })
+                setData({ birthdDate: "", email: "", firstName: '', id: AppContextValue.state.userDetails.length + 1, lastName: '', moreInformation: "" })
             } else {
-                dispatch({ type: "delete", payload: data })
+                AppContextValue.dispatch({ type: "delete", payload: data })
             }
         }
         setUpdateData("can")
