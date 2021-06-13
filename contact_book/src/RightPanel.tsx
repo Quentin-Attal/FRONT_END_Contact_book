@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { userDetailsType } from '../type/userDetailsType';
+import { postRequest } from './api/apiRequest';
+import apiUrl from './api/url';
 import { useAppContext } from './App';
 import './Drawer.css'
 
@@ -19,23 +21,25 @@ const RightPanel = ({ close, widthSideNav, isNew }: RightPanelType) => {
     const [updateData, setUpdateData] = useState<"can" | "delete" | "add">("can")
 
     useEffect(() => {
-        console.log(AppContextValue.state.id)
-        if (AppContextValue.state.userDetails.length > 0 && AppContextValue.state.id !== undefined) {
+        if (AppContextValue.state.userDetails.length > 0 && AppContextValue.state.id !== 0) {
             const nData = AppContextValue.state.userDetails.filter(res => res.id === AppContextValue.state.id)
             setData({ ...nData[0] })
         } else {
             setData({ birthdDate: "", email: "", firstName: '', id: AppContextValue.state.userDetails.length + 1, lastName: '', moreInformation: "" })
         }
         // eslint-disable-next-line
-    }, [AppContextValue.state.id])
+    }, [AppContextValue.state.id, AppContextValue.state.userDetails.length])
 
     useEffect(() => {
         if (updateData === "add") {
             if (isNew) {
-                console.log(AppContextValue.state.userDetails.length)
-                // close()
                 setData({ birthdDate: "", email: "", firstName: '', id: AppContextValue.state.userDetails.length + 1, lastName: '', moreInformation: "" })
-                AppContextValue.dispatch({ type: "new", payload: data })
+                postRequest(apiUrl.USER, data).then((res: userDetailsType) => {
+                    const sendData = res
+                    if (sendData.id) {
+                        AppContextValue.dispatch({ type: "new", payload: sendData })
+                    }
+                })
             } else {
                 AppContextValue.dispatch({ type: "edit", payload: data })
             }

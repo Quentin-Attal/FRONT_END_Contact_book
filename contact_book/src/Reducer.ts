@@ -1,11 +1,19 @@
 import { userDetailsActionType, ReducerStateType, userDetailsType } from '../type/userDetailsType'
+import { deleteRequest, putRequest } from './api/apiRequest'
+import apiUrl from './api/url'
 
 const initialState: ReducerStateType = {
     userDetails: [],
     id: 0
 }
+
 const reducer = (state: ReducerStateType, action: userDetailsActionType): ReducerStateType => {
     switch (action.type) {
+        case 'init':
+            const payloadInit = action.payload as Array<userDetailsType>
+            return {
+                ...state, userDetails: payloadInit
+            }
         case "edit":
             const payloadEdit = action.payload as userDetailsType
             const nUserDetailsAfterEdit = state.userDetails.map(userDetails => {
@@ -14,6 +22,7 @@ const reducer = (state: ReducerStateType, action: userDetailsActionType): Reduce
                 }
                 return userDetails;
             })
+            putRequest(apiUrl.USER + "/" + payloadEdit.id, payloadEdit)
             return {
                 ...state, userDetails: nUserDetailsAfterEdit
             }
@@ -25,6 +34,7 @@ const reducer = (state: ReducerStateType, action: userDetailsActionType): Reduce
         case ('delete'):
             const payloadDelete = action.payload as userDetailsType
             const nUserDetailsAfterDelete = state.userDetails.filter(res => res.id !== payloadDelete.id)
+            deleteRequest(apiUrl.USER + "/" + payloadDelete.id)
             return { ...state, userDetails: nUserDetailsAfterDelete }
         case 'changeId':
             const payloadChangeID = action.payload as number
@@ -33,5 +43,7 @@ const reducer = (state: ReducerStateType, action: userDetailsActionType): Reduce
             return { ...state }
     }
 }
+
+
 
 export { initialState, reducer }

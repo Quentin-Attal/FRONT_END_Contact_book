@@ -8,8 +8,8 @@ export type userDetailsType = {
 }
 
 export type userDetailsActionType = {
-    type: "edit" | "new" | "delete" | "changeId",
-    payload: userDetailsType | number
+    type: "edit" | "new" | "delete" | "changeId" | 'init',
+    payload: userDetailsType | number | Array<userDetailsType>
 }
 
 export type ReducerStateType = {

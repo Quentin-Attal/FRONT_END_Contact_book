@@ -1,19 +1,244 @@
 {
-  "posts": [
+  "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "lastName": "hellos",
+      "firstName": "worlsz",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 1
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "birthdDate": "2021-05-31",
+      "email": "deee",
+      "firstName": "dede",
+      "id": 2,
+      "lastName": "dededee",
+      "moreInformation": ""
+    },
+    {
+      "birthdDate": "2021-06-01",
+      "email": "hyyycd",
+      "firstName": "Hello",
+      "id": 3,
+      "lastName": "J'aime",
+      "moreInformation": "ddd\nde\ndde"
+    },
+    {
+      "birthdDate": "2021-06-01",
+      "email": "ed",
+      "firstName": "ee",
+      "id": 4,
+      "lastName": "ee",
+      "moreInformation": ""
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 5
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 6
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 7
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 8
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 9
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 10
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 11
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 12
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 13
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 14
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 15
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 16
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 17
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 18
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 19
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 20
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 21
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 22
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 23
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 24
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 25
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 26
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 27
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 28
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 29
+    },
+    {
+      "lastName": "hello",
+      "firstName": "world",
+      "email": "helloWorld@gmail.com",
+      "number": "06123456789",
+      "moreInformation": "",
+      "id": 30
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

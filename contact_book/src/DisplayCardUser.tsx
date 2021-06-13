@@ -8,22 +8,41 @@ type CardUserType = {
 }
 
 const CardUser = ({ item, event }: CardUserType) => (
-    <div style={{ height: "10vh", width: "20vw", backgroundColor: "red" }} onClick={() => event(item.id)}>
-
+    <div className="cardUser" >
+        <div className="containCardUser" onClick={() => event(item.id)}>
+            <div>
+                <span>
+                    {item.firstName}
+                </span>
+                <span>
+                    {item.lastName}
+                </span>
+            </div>
+            <p>
+                {item.email}
+            </p>
+            <p>
+                {item.birthdDate}
+            </p>
+        </div>
     </div>
 )
 
-const CardUserList = () => {
+type CardUserListType = {
+    open: (() => void)
+}
+
+const CardUserList = ({ open }: CardUserListType) => {
     const AppContextValue = useAppContext()
 
 
     return (
         <div>
-            {AppContextValue.state.userDetails.map((item) => <CardUser item={item}
-                event={(id) => {
-                    console.log(id)
-                    AppContextValue.dispatch({ type: "changeId", payload: id })
-                }} />)}
+            {AppContextValue.state.userDetails.map((item) => <CardUser
+                key={item.id}
+                item={item}
+                event={(id) => { AppContextValue.dispatch({ type: "changeId", payload: id }); open() }}
+            />)}
         </div>
     )
 }
